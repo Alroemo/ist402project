@@ -38,7 +38,6 @@ d3.csv("cars.csv", type, function(error, data) {
     cars = data;
 	
 //Draws both line and dot graph
-    drawPCGraph();
 	drawScatterPlot();
 });
 
