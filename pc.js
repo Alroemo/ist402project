@@ -38,6 +38,7 @@ d3.csv("cars.csv", type, function(error, data) {
     cars = data;
 	
 //Draws both line and dot graph
+    //drawPCGraph();
 	drawScatterPlot();
 });
 
@@ -57,7 +58,7 @@ function drawPCGraph() {
     
 //sets the x domain dimensions
     x.domain(dimensions = d3.keys(cars[0]).filter(function(d) { return d != "name";}));
-
+/*
 //draws the polylines
     for (var i=1; i< cars.length; i++) { //for each car
 
@@ -105,7 +106,7 @@ function drawPCGraph() {
 	   .attr("y", -4)
 	   .text(function(d) { return d; });
 	   
-    
+    */
 };
 
 function drawScatterPlot(){
