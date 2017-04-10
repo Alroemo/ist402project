@@ -3,29 +3,184 @@
   <head>
     <style>
        #map {
-        height: 400px;
+        height: 600px;
         width: 100%;
        }
     </style>
   </head>
   <body>
-    <h3>My Google Maps Demo</h3>
+    <h3>Penn State Crime Map</h3>
     <div id="map"></div>
+	
     <script>
       function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
+	  
+		
+        var locations = [ 
+{Date:"	9/1/2016	", Offesnses:"	Harassment	",lat:	40.805634	, lng: 	-77.859307	},
+{Date:"	9/1/2016	", Offesnses:"	Suspicious Activity - Other	",lat:	40.793368	, lng: 	-77.864351	},
+{Date:"	9/1/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.804138	, lng: 	-77.861936	},
+{Date:"	9/1/2016	", Offesnses:"	Theft By Deception	",lat:	40.800789	, lng: 	-77.85641	},
+{Date:"	8/30/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.802215	, lng: 	-77.866037	},
+{Date:"	9/1/2016	", Offesnses:"	Vehicle Code - Accident	",lat:	40.800367	, lng: 	-77.856198	},
+{Date:"	9/1/2016	", Offesnses:"	Vehicle Code - Accident	",lat:	40.802177	, lng: 	-77.861388	},
+{Date:"	8/31/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.807329	, lng: 	-77.859192	},
+{Date:"	9/1/2016	", Offesnses:"	Assist State College Police	",lat:	40.795265	, lng: 	-77.860465	},
+{Date:"	9/1/2016	", Offesnses:"	Possession of Small Amount of Marijuana	",lat:	40.807014	, lng: 	-77.862549	},
+{Date:"	9/1/2016	", Offesnses:"	Possession of Small Amount of Marijuana	",lat:	40.798725	, lng: 	-77.85715	},
+{Date:"	9/22/2016	", Offesnses:"	Suspicious Activity - Persons	",lat:	40.796458	, lng: 	-77.862733	},
+{Date:"	9/2/2016	", Offesnses:"	RFA-Request for Assistance	",lat:	40.802261	, lng: 	-77.861044	},
+{Date:"	9/2/2016	", Offesnses:"	Vehicle Code - Accident/Accidents Involving Damage To Unattended Vh/Propty	",lat:	40.799004	, lng: 	-77.860042	},
+{Date:"	9/2/2016	", Offesnses:"	Sexual Assault	",lat:	40.810232	, lng: 	-77.862495	},
+{Date:"	9/2/2016	", Offesnses:"	Assist State College Police	",lat:	40.794922	, lng: 	-77.859992	},
+{Date:"	9/2/2016	", Offesnses:"	Simple Assault/Pur,Cons,Poss, Trans Intox Bev	",lat:	40.79523	, lng: 	-77.860603	},
+{Date:"	9/2/2016	", Offesnses:"	Possession Of An Unknown Drug	",lat:	40.797626	, lng: 	-77.866232	},
+{Date:"	9/2/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.805778	, lng: 	-77.863198	},
+{Date:"	9/1/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.799376	, lng: 	-77.855902	},
+{Date:"	9/2/2016	", Offesnses:"	Suspicious Activity - Other	",lat:	40.806448	, lng: 	-77.861963	},
+{Date:"	9/2/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Disorderly Conduct - Loud Voices/Criminal Trespass/Health and Safety/RFA-Request for Assistance	",lat:	40.800028	, lng: 	-77.858893	},
+{Date:"	9/1/2016	", Offesnses:"	Theft By Unlawful Taking Or Dispo/Receiving Stolen Property	",lat:	40.799143	, lng: 	-77.859844	},
+{Date:"	9/2/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness	",lat:	40.798567	, lng: 	-77.857916	},
+{Date:"	9/3/2016	", Offesnses:"	CAD Error-Incident Numbering Error	",lat:	40.811432	, lng: 	-77.865373	},
+{Date:"	9/3/2016	", Offesnses:"	Specialist Call Out Other	",lat:	40.812245	, lng: 	-77.855566	},
+{Date:"	9/3/2016	", Offesnses:"	Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.812289	, lng: 	-77.852026	},
+{Date:"	9/3/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.81265	, lng: 	-77.859664	},
+{Date:"	9/3/2016	", Offesnses:"	Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.812229	, lng: 	-77.853632	},
+{Date:"	9/3/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev	",lat:	40.811952	, lng: 	-77.848124	},
+{Date:"	9/3/2016	", Offesnses:"	Terroristic Threats/Propulsion Msl Ocp Veh Or Rdwy/Tampering/Fab-Phys Evidence/Possession Of Other Drug/Md/Pwid Other Drug/Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Disorderly Conduct - Fighting	",lat:	40.810235	, lng: 	-77.864824	},
+{Date:"	9/3/2016	", Offesnses:"	Indecent Assault/Harassment	",lat:	40.811229	, lng: 	-77.856328	},
+{Date:"	9/3/2016	", Offesnses:"	Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.810191	, lng: 	-77.861828	},
+{Date:"	9/3/2016	", Offesnses:"	Harassment	",lat:	40.807553	, lng: 	-77.862555	},
+{Date:"	9/3/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.811694	, lng: 	-77.849402	},
+{Date:"	9/3/2016	", Offesnses:"	Public Drunkenness	",lat:	40.810531	, lng: 	-77.85342	},
+{Date:"	9/3/2016	", Offesnses:"	Public Drunkenness/Criminal Trespass/Health and Safety/RFA-Request for Assistance	",lat:	40.80187	, lng: 	-77.862454	},
+{Date:"	9/3/2016	", Offesnses:"	Carrying False Id Card-Minor/Criminal Mischief - Buildings/Disorderly Conduct/PSU-Rules and Regulations	",lat:	40.802712	, lng: 	-77.86653	},
+{Date:"	9/3/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.801918	, lng: 	-77.856022	},
+{Date:"	9/3/2016	", Offesnses:"	PSU-Rules and Regulations	",lat:	40.805131	, lng: 	-77.861018	},
+{Date:"	9/4/2016	", Offesnses:"	PSU-Rules and Regulations	",lat:	40.797561	, lng: 	-77.861816	},
+{Date:"	9/4/2016	", Offesnses:"	Health and Safety/Health and Safety/RFA-Request for Assistance	",lat:	40.802198	, lng: 	-77.8521	},
+{Date:"	9/4/2016	", Offesnses:"	Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.801003	, lng: 	-77.858288	},
+{Date:"	9/4/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Health and Safety/RFA-Request for Assistance	",lat:	40.800296	, lng: 	-77.8563	},
+{Date:"	9/5/2016	", Offesnses:"	Possession of Small Amount of Marijuana/Pur,Cons,Poss, Trans Intox Bev	",lat:	40.796779	, lng: 	-77.866506	},
+{Date:"	9/2/2016	", Offesnses:"	Possession of Small Amount of Marijuana	",lat:	40.806138	, lng: 	-77.860447	},
+{Date:"	9/5/2016	", Offesnses:"	Possession of Small Amount of Marijuana/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.80965	, lng: 	-77.850404	},
+{Date:"	9/5/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Health and Safety/RFA-Request for Assistance	",lat:	40.807546	, lng: 	-77.861217	},
+{Date:"	9/5/2016	", Offesnses:"	Harassment	",lat:	40.799683	, lng: 	-77.869196	},
+{Date:"	9/3/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.802779	, lng: 	-77.860083	},
+{Date:"	9/5/2016	", Offesnses:"	Assist State College Police	",lat:	40.797254	, lng: 	-77.857174	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.795796	, lng: 	-77.866167	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.797344	, lng: 	-77.868459	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety	",lat:	40.799307	, lng: 	-77.857463	},
+{Date:"	9/4/2016	", Offesnses:"	Lost Property - Wallets/Purses/Bookbags/Etc	",lat:	40.791343	, lng: 	-77.869378	},
+{Date:"	9/6/2016	", Offesnses:"	Theft/$50-$200/Bicycle	",lat:	40.805076	, lng: 	-77.861901	},
+{Date:"	9/6/2016	", Offesnses:"	Theft Of Property Lost Etc.	",lat:	40.797577	, lng: 	-77.865899	},
+{Date:"	9/6/2016	", Offesnses:"	Suspicious Activity - Other	",lat:	40.80338	, lng: 	-77.856856	},
+{Date:"	9/1/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.794777	, lng: 	-77.862701	},
+{Date:"	9/6/2016	", Offesnses:"	Vehicle Code - Accident	",lat:	40.810889	, lng: 	-77.856955	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety	",lat:	40.811073	, lng: 	-77.864712	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.795289	, lng: 	-77.865829	},
+{Date:"	9/6/2016	", Offesnses:"	Theft Of Property Lost Etc.	",lat:	40.798971	, lng: 	-77.862844	},
+{Date:"	9/3/2016	", Offesnses:"	RFA-Request for Assistance/Health and Safety	",lat:	40.802597	, lng: 	-77.855567	},
+{Date:"	9/6/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.80229	, lng: 	-77.851015	},
+{Date:"	9/6/2016	", Offesnses:"	RFA-Request for Assistance	",lat:	40.851508	, lng: 	-77.85043	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.792656	, lng: 	-77.865782	},
+{Date:"	9/2/2016	", Offesnses:"	Theft Of Property Lost Etc.	",lat:	40.800484	, lng: 	-77.861761	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.80005	, lng: 	-77.854973	},
+{Date:"	9/6/2016	", Offesnses:"	Health and Safety	",lat:	40.796796	, lng: 	-77.861225	},
+{Date:"	9/7/2016	", Offesnses:"	Possession of Small Amount of Marijuana/Possession of Paraphernalia	",lat:	40.805967	, lng: 	-77.868194	},
+{Date:"	9/4/2016	", Offesnses:"	Robbery/Gun-Miscellaneous/Theft/$50-$200/Other/Simple Assault/Recklessly Endangering/Receiving Stolen Property/Disorderly Conduct	",lat:	40.803015	, lng: 	-77.855576	},
+{Date:"	9/7/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.806808	, lng: 	-77.857958	},
+{Date:"	9/7/2016	", Offesnses:"	Criminal Mischief - Buildings	",lat:	40.800138	, lng: 	-77.866249	},
+{Date:"	9/7/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.798184	, lng: 	-77.860985	},
+{Date:"	9/7/2016	", Offesnses:"	Possession of Small Amount of Marijuana/Possession of Paraphernalia	",lat:	40.808185	, lng: 	-77.861095	},
+{Date:"	9/7/2016	", Offesnses:"	PSU-Rules and Regulations	",lat:	40.801931	, lng: 	-77.863077	},
+{Date:"	9/7/2016	", Offesnses:"	Theft/$50-$200/From Building	",lat:	40.799032	, lng: 	-77.861708	},
+{Date:"	9/7/2016	", Offesnses:"	Theft Of Property Lost Etc.	",lat:	40.795184	, lng: 	-77.865239	},
+{Date:"	8/26/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.788832	, lng: 	-77.872779	},
+{Date:"	9/7/2016	", Offesnses:"	Health and Safety	",lat:	40.797061	, lng: 	-77.870472	},
+{Date:"	9/8/2016	", Offesnses:"	Forcible Rape	",lat:	40.80623	, lng: 	-77.86209	},
+{Date:"	9/8/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness	",lat:	40.804378	, lng: 	-77.860706	},
+{Date:"	9/8/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Health and Safety	",lat:	40.804298	, lng: 	-77.861499	},
+{Date:"	9/8/2016	", Offesnses:"	Health and Safety	",lat:	40.806421	, lng: 	-77.860577	},
+{Date:"	9/8/2016	", Offesnses:"	Community Education Report	",lat:	40.799182	, lng: 	-77.856759	},
+{Date:"	9/7/2016	", Offesnses:"	Vehicle Code - Accident	",lat:	40.799897	, lng: 	-77.86845	},
+{Date:"	9/3/2016	", Offesnses:"	Disorderly Conduct/RFA-Request for Assistance	",lat:	40.802173	, lng: 	-77.85334	},
+{Date:"	9/8/2016	", Offesnses:"	Health and Safety	",lat:	40.79569	, lng: 	-77.867318	},
+{Date:"	9/7/2016	", Offesnses:"	Disorderly Conduct - Fighting/RFA-Request for Assistance	",lat:	40.789664	, lng: 	-77.871627	},
+{Date:"	9/8/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.795448	, lng: 	-77.864419	},
+{Date:"	9/8/2016	", Offesnses:"	Community Education Report	",lat:	40.798905	, lng: 	-77.867441	},
+{Date:"	9/7/2016	", Offesnses:"	Terroristic Threats	",lat:	40.798133	, lng: 	-77.862234	},
+{Date:"	9/9/2016	", Offesnses:"	Criminal Mischief - Other	",lat:	40.802013	, lng: 	-77.857455	},
+{Date:"	9/9/2016	", Offesnses:"	Vehicle Code - Incident	",lat:	40.794692	, lng: 	-77.866628	},
+{Date:"	9/9/2016	", Offesnses:"	Found Property - Firearms/PSU-Rules and Regulations	",lat:	40.796126	, lng: 	-77.860331	},
+{Date:"	9/8/2016	", Offesnses:"	Assist State College Police	",lat:	40.794441	, lng: 	-77.861607	},
+{Date:"	9/9/2016	", Offesnses:"	Health and Safety	",lat:	40.818245	, lng: 	-77.857204	},
+{Date:"	9/9/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.80425	, lng: 	-77.861497	},
+{Date:"	9/10/2016	", Offesnses:"	Health and Safety	",lat:	40.800504	, lng: 	-77.85797	},
+{Date:"	9/10/2016	", Offesnses:"	Vehicle Code - Accident (Hit&Run)	",lat:	40.803364	, lng: 	-77.855182	},
+{Date:"	9/10/2016	", Offesnses:"	Burglary/No Force-Nonres-Day/Theft/Under $50/From Building	",lat:	40.798776	, lng: 	-77.868963	},
+{Date:"	9/10/2016	", Offesnses:"	Burglary/Theft By Unlawful Taking Or Dispo	",lat:	40.798113	, lng: 	-77.864161	},
+{Date:"	9/10/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.801009	, lng: 	-77.862049	},
+{Date:"	9/10/2016	", Offesnses:"	Possession of Small Amount of Marijuana	",lat:	40.806997	, lng: 	-77.861708	},
+{Date:"	9/11/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.806173	, lng: 	-77.862037	},
+{Date:"	9/11/2016	", Offesnses:"	Criminal Mischief - Other	",lat:	40.793272	, lng: 	-77.866793	},
+{Date:"	9/11/2016	", Offesnses:"	RFA-Request for Assistance	",lat:	40.797889	, lng: 	-77.862481	},
+{Date:"	9/10/2016	", Offesnses:"	PSU-Rules and Regulations	",lat:	40.794254	, lng: 	-77.862578	},
+{Date:"	9/11/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.800737	, lng: 	-77.860425	},
+{Date:"	9/11/2016	", Offesnses:"	Public Drunkenness/RFA-Request for Assistance/Health and Safety	",lat:	40.801505	, lng: 	-77.85024	},
+{Date:"	9/11/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.801084	, lng: 	-77.866685	},
+{Date:"	9/12/2016	", Offesnses:"	Community Education Report	",lat:	40.798839	, lng: 	-77.86674	},
+{Date:"	9/12/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.806598	, lng: 	-77.85698	},
+{Date:"	4/28/2016	", Offesnses:"	Found Property - Office Equipment	",lat:	40.798232	, lng: 	-77.870676	},
+{Date:"	9/10/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.799622	, lng: 	-77.867691	},
+{Date:"	9/12/2016	", Offesnses:"	Possession of Small Amount of Marijuana/Possession of Paraphernalia/Suspicious Activity - Other/PSU-Rules and Regulations/Specialist Call Out Canine	",lat:	40.805495	, lng: 	-77.86226	},
+{Date:"	9/12/2016	", Offesnses:"	Theft/$50-$200/Bicycle/Receiving Stolen Property	",lat:	40.796118	, lng: 	-77.868396	},
+{Date:"	9/13/2016	", Offesnses:"	Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.795887	, lng: 	-77.864215	},
+{Date:"	9/10/2016	", Offesnses:"	Community Education Report	",lat:	40.796038	, lng: 	-77.869002	},
+{Date:"	9/12/2016	", Offesnses:"	Health and Safety/PSU-Rules and Regulations/RFA-Request for Assistance	",lat:	40.796793	, lng: 	-77.87235	},
+{Date:"	9/14/2016	", Offesnses:"	Health and Safety/RFA-Request for Assistance	",lat:	40.797966	, lng: 	-77.865737	},
+{Date:"	9/14/2016	", Offesnses:"	Vehicle Code - Accident (Hit&Run)/Accidents-Damage Attn Veh/Prop	",lat:	40.802729	, lng: 	-77.861221	},
+{Date:"	8/26/2016	", Offesnses:"	Pur,Cons,Poss, Trans Intox Bev/Public Drunkenness/Health and Safety/RFA-Request for Assistance	",lat:	40.804871	, lng: 	-77.862211	},
+{Date:"	9/13/2016	", Offesnses:"	Suspicious Activity - Other	",lat:	40.802804	, lng: 	-77.866038	},
+{Date:"	9/13/2016	", Offesnses:"	Vehicle Code - Accident (Hit&Run)	",lat:	40.805142	, lng: 	-77.855676	},
+{Date:"	9/14/2016	", Offesnses:"	RFA-Request for Assistance	",lat:	40.794387	, lng: 	-77.864236	},
+{Date:"	9/15/2016	", Offesnses:"	Health and Safety	",lat:	40.814015	, lng: 	-77.861318	},
+{Date:"	9/15/2016	", Offesnses:"	Vehicle Code - Accident	",lat:	40.80185	, lng: 	-77.863184	},
+{Date:"	9/15/2016	", Offesnses:"	PSU-Rules and Regulations	",lat:	40.802493	, lng: 	-77.857859	}
+]
+        
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 15, center: locations[0]});
+        
+        
+        for(var i=0; i< locations.length; i++){
+          
+          var latLng = new google.maps.LatLng(locations.lat, locations.lng);
+          var contentString = locations[i].Offesnses;
+          
+        	var marker = new google.maps.Marker({ 
+        	  position: locations[i], 
+        	  map: map,
+        	  contentString: contentString
+        	});
+        	
+        	var infowindow = new google.maps.InfoWindow({});
+        	
+        	marker.addListener('click', function() { 
+        	  infowindow.setContent(this.contentString);
+        	  infowindow.open(map, this);
+        	  map.setCenter(this.getPosition());
+        	});
+        }
+        
+        
       }
+      
+		
+      
     </script>
+	
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzZm8jSXO_pZq2ubxv0NCFyiw8QbfMs0g&callback=initMap">
     </script>
   </body>
 </html>
