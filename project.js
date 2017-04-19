@@ -3,10 +3,10 @@ var margin = {top: 20, right: 30, bottom: 30, left: 40},
     height = 500 - margin.top - margin.bottom;
 
 
-	
-	
+
+
 	var parseDate= d3.time.format("%m/%d/%Y_%H%M").parse;
-	
+
 
 
 	x = d3.time.scale().range(0, width),
@@ -35,10 +35,10 @@ d3.csv("cc_data.csv", type, function(error, data) {
 });
 
 function drawXY(){
-	
 
-   x.domain([d3.min(ccinfo, function(d) { return d.date; }), d3.max(ccinfo, function(d) { return d.date; })]);
- 
+
+   x.domain([d3.min(ccinfo, function(d) { console.log(d.date); return d.date; }), d3.max(ccinfo, function(d) { return d.date; })]);
+
     y.domain([d3.min(ccinfo, function(d) { return d.price; }), d3.max(ccinfo, function(d) { return d.price; })]);
 
     var yPos = height -20;
@@ -51,7 +51,7 @@ function drawXY(){
 	   .attr("class", "yaxis")
 	   .attr("transform", "translate(50,0)")
 	   .call(yAxis);
-    
+
     chart.selectAll(".dot")
 	   .data(ccinfo)
 	   .enter().append("circle")
@@ -62,7 +62,7 @@ function drawXY(){
 }
 
 function type(d) {
-   
+
     d.price = +d.price; // coerce to number
     d.date = +d.date;
     return d;
