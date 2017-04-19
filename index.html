@@ -3,30 +3,19 @@
 <head>
 </head>
 <style>
-  #chart{
-    display: block; /* Useless, divs are display:block */
-    width: 100%;    /* Useless, display:block elements are width:100% by default */
-    height: 100%;   /* Fairly useless now, should take children's height */
-    font-size:0;
-  }
-  #left_frame {
-  width: 140px;
-}
-#right_frame {
-  width: calc(100% - 140px);
-}
-#left_frame,#right_frame {
-  display: inline-block;
-  box-sizing: border-box;
-  height: calc(100vh - 50px);
-}
+html,body        {height:100%;}
+.chart iframe {position:absolute;top:0;left:0;width:100%; height:calc(100% - 120px);}
+.histogram iframe {position:absolute;bottom:0;right:0;width:100%; height:120px;}
+
 </style>
 
 
 <body>
   <div class="chart">
-    <iframe id = "left_frame" src="projhistogram.html" width = "400" height ="600" scrolling="false">
-      <h1></h1>
+    <iframe id = "left_frame" src="projhistogram.html" width = "400" height ="600" scrolling="false"></iframe>
+  </div>
+
+  <div class="histogram">
   <iframe id="right_frame" src="projhistogram.html" width = "1000" height ="600" scrolling="true">
   </div>
 </body>
