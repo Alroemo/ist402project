@@ -29,7 +29,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left");
-	
+
 //here is the array the data from loyalty_data.tsv is stored in
 var bardata = [ ];
 
@@ -37,7 +37,7 @@ var bardata = [ ];
 var currstate= 1;
 
 //The data from loyalty_data.svg is read and the chart is made
-d3.csv("please.csv", type, function(error, data) {
+d3.tsv("loyalty_data.tsv", type, function(error, data) {
  bardata= data;
  checkbardata= data;
 
